@@ -1,53 +1,221 @@
-/* Intro Section */
-.intro-section {
-  text-align: center;
-  margin-bottom: 4rem;
-  padding: 3rem 1rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.intro-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #1a1a1a;
-}
-
-.intro-text {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-
-.intro-details {
-  border-top: 1px solid #eee;
-  padding-top: 1.5rem;
-}
-
-.intro-list {
-  text-align: left;
-  max-width: 500px;
+.intro-container {
+  padding: 80px 20px;
+  max-width: 800px;
   margin: 0 auto;
-  color: #555;
-  line-height: 2;
-  list-style-type: none;
-  padding: 0;
+  animation: fadeIn 0.6s ease-out;
 }
 
-.intro-list li {
-  border-bottom: 1px solid #f0f0f0;
-  padding: 0.5rem 0;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.intro-list li:last-child {
-  border-bottom: none;
+.intro-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.intro-list strong {
+/* 個人資訊區塊 */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.profile-photo {
+  width: 220px;
+  height: 150px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 4px solid #f0f2f5;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-titles h1 {
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.profile-titles p {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.personal-website-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8f9fa;
+  color: #646cff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid #e9ecef;
+}
+
+.personal-website-link:hover {
+  background: #646cff;
+  color: white;
+  border-color: #646cff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.2);
+}
+
+.website-cta {
+  font-size: 0.85rem;
+  color: #646cff;
+  margin-top: 10px;
+  font-weight: 500;
+  animation: float-text 3s ease-in-out infinite;
+  display: block;
+}
+
+@keyframes float-text {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-3px); opacity: 1; }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #eee;
+}
+
+/* 詳細資訊清單 */
+.intro-details-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.detail-icon {
+  color: #646cff;
+  padding-top: 4px;
+}
+
+.detail-text label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.detail-text span {
+  font-size: 1rem;
   color: #333;
-  margin-right: 0.5rem;
-  display: inline-block;
-  width: 60px;
+  line-height: 1.5;
+}
+
+/* 額外補充文字 */
+.about-me-extra {
+  padding-top: 20px;
+}
+
+.about-me-extra h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.about-me-extra p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* 照片牆區塊 */
+.photo-wall-container {
+  margin-top: 40px;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.photo-wall-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* 加入漸變遮罩讓左右滾動更自然 */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.photo-wall-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll-wall 30s linear infinite;
+}
+
+.photo-item {
+  width: 210px;
+  height: 280px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scroll-wall {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 10px)); } /* 減 10px 是補償一半的 gap */
+}
+
+/* 暫停滾動當滑鼠懸停在照片上時 */
+.photo-wall-viewport:hover .photo-wall-track {
+  animation-play-state: paused;
+}
+
+/* 響應式調整 */
+@media (max-width: 600px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .intro-main-card {
+    padding: 30px;
+  }
+  
+  .profile-titles h1 {
+    font-size: 1.8rem;
+  }
 }
