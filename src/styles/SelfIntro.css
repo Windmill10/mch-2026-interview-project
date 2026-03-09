@@ -37,6 +37,7 @@
 }
 
 .intro-list li {
+  display: flex;
   border-bottom: 1px solid #f0f0f0;
   padding: 0.5rem 0;
 }
@@ -49,5 +50,13 @@
   color: #333;
   margin-right: 0.5rem;
   display: inline-block;
-  width: 60px;
+  /*width: 60px;*/
+  min-width: 60px;
+}
+
+@media (max-width: 480px) {
+  .intro-list li {
+    flex-direction: column; /* 螢幕太小時改為上下排列 */
+    
+  }
 }
