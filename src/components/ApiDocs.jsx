@@ -3,7 +3,7 @@ import '../styles/ApiDocs.css';
 
 const ApiDocs = () => {
   // Use environment variable or fallback to localhost
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/websites';
+  const API_URL = import.meta.env.VITE_API_URL || 'https://mch-2026-interview-backend.vercel.app/api/websites';
   const DOCS_URL = API_URL.replace('/websites', '/docs');
 
   return (
