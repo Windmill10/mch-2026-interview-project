@@ -5,17 +5,20 @@
   padding: 3rem 1rem;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .intro-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
   color: #1a1a1a;
 }
 
 .intro-text {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #666;
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -26,28 +29,58 @@
   padding-top: 1.5rem;
 }
 
+.intro-details h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* list */
 .intro-list {
   text-align: left;
   max-width: 500px;
   margin: 0 auto;
   color: #555;
   line-height: 2;
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
+/* 每一列 */
 .intro-list li {
+  display: flex;
+  align-items: flex-start;
   border-bottom: 1px solid #f0f0f0;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
+  gap: 1rem;
 }
 
 .intro-list li:last-child {
   border-bottom: none;
 }
 
+/* 左側標題 */
 .intro-list strong {
   color: #333;
-  margin-right: 0.5rem;
-  display: inline-block;
-  width: 60px;
+  width: 70px;
+  flex-shrink: 0;
+}
+
+/* 右側內容 */
+.intro-list span {
+  flex: 1;
+  line-height: 1.8;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* RWD */
+@media (max-width: 600px) {
+  .intro-list li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .intro-list strong {
+    width: auto;
+  }
 }
